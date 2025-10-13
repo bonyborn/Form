@@ -156,10 +156,14 @@
         <input type="password" id="confirm-password" required>
         <label for="confirm-password">Confirm Password</label>
       </div>
-
-      <label>
-        <a href="/storage/emulated/0/form/T&C.html" target="_blank" class="link">Terms & Conditions</a>
-      </label>
+      <!-- Terms & Conditions Checkbox -->
+      <div class="terms">
+         <input type="checkbox" id="terms" required>
+        <label for="terms">
+        I have read, viewed, and agree to <strong>comply</strong> with the 
+        <a href="/storage/emulated/0/T&C.html" target="_blank">Terms & Conditions</a>.
+        </label>
+     </div>
 
       <button type="submit" class="register-btn">Submit Registration</button>
     </form>
@@ -167,5 +171,18 @@
     <hr>
     <button class="print-btn" onclick="window.print()">Print Page</button>
   </div>
+
+  <script>
+    function validateForm() {
+      const pass = document.getElementById("password").value;
+      const confirm = document.getElementById("confirm-password").value;
+      if (pass !== confirm) {
+        alert("Passwords do not match!");
+        return false;
+      }
+      return true;
+    }
+  </script>
 </body>
+
 </html>
