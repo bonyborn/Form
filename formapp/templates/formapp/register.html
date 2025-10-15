@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('/storage/emulated/0/form/raymond.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      backdrop-filter: blur(3px);
+    }
+
+    .form-container {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 15px;
+      width: 350px;
+      color: white;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 40px;
+      color: #00bfff;
+      margin-bottom: 20px;
+    }
+
+    hr {
+      border: 1px solid #00bfff;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-bottom: 2px solid #00bfff;
+      background: transparent;
+      color: #fff;
+      outline: none;
+    }
+
+    .input-group label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: #aaa;
+      pointer-events: none;
+      transition: 0.3s;
+    }
+
+    .input-group input:focus + label,
+    .input-group input:valid + label {
+      top: -15px;
+      left: 0;
+      color: #00bfff;
+      font-size: 14px;
+    }
+
+    .link {
+      color: #00ffb3;
+      text-decoration: none;
+    }
+
+    .link:hover {
+      text-decoration: underline;
+    }
+
+    .register-btn {
+      width: 100%;
+      background-color: #00bfff;
+      color: white;
+      font-size: 16px;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .register-btn:hover {
+      background-color: #0080ff;
+    }
+
+    .print-btn {
+      display: block;
+      margin: 15px auto 0;
+      background-color: #1eeb92;
+      color: black;
+      padding: 8px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .print-btn:hover {
+      background-color: #17c178;
+    }
+
+    label a {
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Register</h1>
+    <hr>
+
+    <form>
+      <div class="input-group">
+        <input type="text" id="Name" required>
+        <label for="Name">Full Name</label>
+      </div>
+
+      <div class="input-group">
+        <input type="email" id="email" required>
+        <label for="email">E-mail</label>
+      </div>
+
+      <div class="input-group">
+        <input type="tel" id="phone" required>
+        <label for="phone">Phone Number</label>
+      </div>
+
+      <div class="input-group">
+        <input type="password" id="password" required>
+        <label for="password">Password</label>
+      </div>
+
+      <div class="input-group">
+        <input type="password" id="confirm-password" required>
+        <label for="confirm-password">Confirm Password</label>
+      </div>
+      <!-- Terms & Conditions Checkbox -->
+      <div class="terms">
+         <input type="checkbox" id="terms" required>
+        <label for="terms">
+        I have read, viewed, and agree to <strong>comply</strong> with the 
+        <a href="terms.html" target="_blank">Terms & Conditions</a>.
+        </label>
+     </div>
+
+      <button type="submit" class="register-btn">Submit Registration</button>
+    </form>
+
+    <hr>
+    <button class="print-btn" onclick="window.print()">Print Page</button>
+  </div>
+
+  <script>
+    function validateForm() {
+      const pass = document.getElementById("password").value;
+      const confirm = document.getElementById("confirm-password").value;
+      if (pass !== confirm) {
+        alert("Passwords do not match!");
+        return false;
+      }
+      return true;
+    }
+  </script>
+</body>
+
+</html>
